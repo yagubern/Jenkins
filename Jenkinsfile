@@ -1,14 +1,19 @@
 pipeline {
 agent { label 'docker-slave' }
     stages {
-        stage('Checkout') {
+        stage('Checkout code') {
             steps {
                 checkout scm
             }
         }
-        stage('Build') {
+        stage('Check maven version') {
             steps {
                 sh 'mvn --version'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'mvn clean install'
             }
         }
     }
