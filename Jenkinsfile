@@ -1,9 +1,9 @@
 pipeline {
-    agent { docker { image 'maven:3.3.3' } }
+agent { label 'docker-slave' }
     stages {
-        stage('build') {
+        stage('Checkout') {
             steps {
-                sh 'mvn --version'
+                checkout scm
             }
         }
     }
