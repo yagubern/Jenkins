@@ -24,6 +24,7 @@ agent { label 'docker-slave' }
     }
     post {
         always {
+            junit 'target/surefire-reports/*.xml'
             archiveArtifacts artifacts: 'target/gs-rest-service-0.1.0.jar', onlyIfSuccessful: true
         }
     }
