@@ -17,4 +17,9 @@ agent { label 'docker-slave' }
             }
         }
     }
+    post {
+        always {
+            archiveArtifacts artifacts: 'target/gs-rest-service-0.1.0.jar', onlyIfSuccessful: true
+        }
+    }
 }
