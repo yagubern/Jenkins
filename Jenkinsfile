@@ -6,5 +6,10 @@ agent { label 'docker-slave' }
                 checkout scm
             }
         }
+        stage('Build') {
+            steps {
+                sh 'mvn --version'
+            }
+        }
     }
 }
